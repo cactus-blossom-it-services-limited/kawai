@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Debugs forms and themes
+ */
+
+/**
+ * @ingroup mandela
+ * Performing debugging assistance for developers in Drupal 7
+ */
+
+/**
+ * Implements
+ */
+
+/**
+ * Implements hook_help().
+ */
+function mandela_xray_help($path, $arg) {
+  if ($path == 'admin/structure') {
+    return t('Some help text up in the block!');
+  }
+}

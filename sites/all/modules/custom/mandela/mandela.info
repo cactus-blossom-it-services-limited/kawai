@@ -1,0 +1,4 @@
+name = Mandela
+description = This contains custom Drupal 7 modules.
+package = Mandela custom
+core = 7.x

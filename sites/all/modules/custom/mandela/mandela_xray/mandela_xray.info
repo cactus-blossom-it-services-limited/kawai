@@ -1,0 +1,4 @@
+name = Mandela Xray
+description = A debugging tool
+package = Mandela custom
+core = 7.x

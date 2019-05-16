@@ -1,0 +1,22 @@
+<?php
+/**
+* @file
+* .
+*/
+
+/**
+ * @defgroup mandela
+ * @{
+ * A range of custom modules by Cactus Blossom IT Services Limited
+ */
+
+/**
+ * Implements hook_help().
+ */
+function mandela_help($path, $arg) {
+
+}
+
+/**
+ * @} End of 'defgroup mandela'
+ */
