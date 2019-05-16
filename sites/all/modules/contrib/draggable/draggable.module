@@ -1,0 +1,81 @@
+<?php
+/**
+ * @file
+ * Contains all hooks for the draggable module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function draggable_menu() {
+  $items['admin/config/user-interface/draggable'] = array(
+    'title' => 'Draggable',
+    'description' => 'Modify draggable block settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('draggable_settings_form'),
+    'access arguments' => array('administer draggable'),
+    'file' => 'draggable.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function draggable_permission() {
+  $permissions['administer draggable'] = array(
+    'title' => t('Administer draggable'),
+    'description' => t('Perform administration tasks for draggable.'),
+  );
+  $permissions['use draggable'] = array(
+    'title' => t('Use draggable'),
+    'description' => t('Use draggable functionality.'),
+  );
+
+  return $permissions;
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function draggable_page_build(&$page) {
+  if (user_access('use draggable')) {
+    $containers = explode(PHP_EOL, variable_get('draggable_containers'));
+    $page['content']['#attached']['library'][] = array('draggable', 'dragula');
+    $page['content']['#attached']['js'][] = array(
+      'type' => 'setting',
+      'data' => array('draggable' => array('containers' => $containers)),
+    );
+    $page['content']['#attached']['js'][] = array(
+      'type' => 'file',
+      'data' => drupal_get_path('module', 'draggable') . '/js/script.js',
+    );
+    $page['content']['#attached']['css'] = array(
+      'type' => 'file',
+      'data' => drupal_get_path('module', 'draggable') . '/css/dragula-custom.css',
+    );
+  }
+}
+
+/**
+ * Implements hook_library().
+ */
+function draggable_library() {
+  $libraries['dragula'] = array(
+    'title' => 'Dragula',
+    'website' => 'https://github.com/bevacqua/dragula',
+    'version' => '3.6.6',
+    'js' => array(
+      drupal_get_path('module', 'draggable') . '/js/dragula.min.js' => array(),
+    ),
+    'css' => array(
+      drupal_get_path('module', 'draggable') . '/css/dragula.min.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+    ),
+  );
+
+  return $libraries;
+}

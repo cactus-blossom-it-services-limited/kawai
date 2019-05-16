@@ -1,0 +1,152 @@
+<?php
+
+/**
+ * @file
+ * Main module file, only hooks are allowed here.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function responsive_blog_module_block_info() {
+  $blocks = array();
+  $blocks = array(
+    'about-us' => array(
+      'info' => t('About Us'),
+    ),
+    'twitter-feed' => array(
+      'info' => t('Twitter feed'),
+    ),
+    'copyright' => array(
+      'info' => t('Copyright'),
+    ),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function responsive_blog_module_block_view_alter(&$data, $block) {
+  // Alter default block titles.
+  if ($block->module == 'social_media_links') {
+    if ($block->delta == 'social-media-links') {
+      $data['subject'] = '';
+    }
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function responsive_blog_module_block_view($delta = '') {
+  $block = array();
+
+  $info = array();
+  $subject = '';
+  switch ($delta) {
+    case 'about-us':
+      $subject = 'About us';
+      $info = variable_get('block_about-us', '');
+      break;
+
+    case 'twitter-feed':
+      $subject = 'Twitter feed';
+      $info = variable_get('block_twitter-feed', '');
+      break;
+
+    case 'copyright':
+      $info = variable_get('block_copyright', '');
+      break;
+  }
+
+  $block['subject'] = $subject;
+  $block['content'] = $info['content'];
+
+  return $block;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function responsive_blog_module_block_configure($delta = '') {
+  // Add text form on block configuration page to allow editing block content.
+  $form = array();
+
+  $form['block_content'] = array(
+    '#type' => 'text_format',
+    '#title' => t('Block body'),
+    '#default_value' => variable_get('block_' . $delta, '')['content'],
+  );
+
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function responsive_blog_module_block_save($delta = '', $edit = array()) {
+  $content = $edit['block_content']['value'];
+
+  $info = array(
+    'content' => $content,
+  );
+  variable_set('block_' . $delta, $info);
+}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function responsive_blog_module_node_view_alter(&$build) {
+  // Remove unnecessary links from node view.
+  unset($build['links']['blog']);
+  unset($build['links']['statistics']);
+  unset($build['links']['comment']['#links']['comment-add']);
+  unset($build['links']['comment']['#links']['comment-new-comments']);
+}
+
+/**
+ * Implements hook_social_media_links_iconset_info().
+ */
+function responsive_blog_module_social_media_links_iconset_info() {
+  $icons['responsive_theme_iconset'] = array(
+    'name' => 'Responsive theme iconset',
+    'publisher' => 'ADCI Solutions',
+    'publisher url' => 'http://www.adcisolutions.com/',
+    'styles' => array(
+      '32' => '32x32',
+    ),
+    'path callback' => 'responsive_blog_module_iconset_path',
+    'download url' => 'http://www.adcisolutions.com/',
+  );
+
+  return $icons;
+}
+
+/**
+ * Callback with the informations about the elegantthemes icon set.
+ *
+ * @param string $platform
+ *   Name of the platform for which the path is returned.
+ * @param string $style
+ *   Size of the icons.
+ *
+ * @return string
+ *   The image path.
+ */
+function responsive_blog_module_iconset_path($platform = 'twitter', $style = NULL) {
+  switch ($platform) {
+    case 'contact':
+      $platform = 'email';
+      break;
+
+    case 'youtube_channel':
+      $platform = 'youtube';
+      break;
+  }
+
+  $path = libraries_get_path('responsive_theme_iconset') . '/' . $platform . '.png';
+
+  return $path;
+}

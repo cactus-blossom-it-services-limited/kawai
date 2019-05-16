@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Configure blocks on install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function responsive_blog_module_install() {
+  if (empty(variable_get('block_about-us'))) {
+    $image = '/' . drupal_get_path('module', 'responsive_blog_module') . '/theme/images/about-us.png';
+    $content = '<img src="' . $image . '" alt="About us picture" style="float: left; margin-right: 7px;">';
+    $content .= '<p>' . t('Here you can enter information about you, your pet or whatever you want.') . '</p>';
+    $info = array(
+      'content' => $content,
+    );
+    variable_set('block_about-us', $info);
+  }
+
+  if (empty(variable_get('block_twitter-feed', ''))) {
+    $content = 'Due to changes in Twitter widget system, you\'ll have to ';
+    $content .= 'configure this block manually. To do this you need to go to ';
+    $content .= 'your Twitter widget page (https://publish.twitter.com/). ';
+    $content .= 'When you are done with widget configuration, Twitter will form a code for you. ';
+    $content .= 'Just copy this code and paste it here instead of this text.';
+    $content = '<p>' . t('@content', array('@content' => $content)) . '</p>';
+
+    $info = array(
+      'content' => $content,
+    );
+    variable_set('block_twitter-feed', $info);
+  }
+
+  if (empty(variable_get('block_copyright'))) {
+    $content  = '<span style="font-style: italic; font-size: .9em;">';
+    $content .= l(t('ADCI Solutions theme'), 'http://www.adcisolutions.com/') . '. ';
+    $content .= t('All rights reserved.') . ' ' . date('Y', time());
+    $content .= '</span>';
+    $info = array(
+      'content' => $content,
+    );
+    variable_set('block_copyright', $info);
+  }
+}

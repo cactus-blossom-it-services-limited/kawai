@@ -1,0 +1,11 @@
+name = Draggable
+description = Draggable elements module
+core = 7.x
+configure = admin/config/user-interface/draggable
+
+; Information added by Drupal.org packaging script on 2016-05-20
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "draggable"
+datestamp = "1463756063"
+

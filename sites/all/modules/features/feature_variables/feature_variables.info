@@ -1,0 +1,16 @@
+name = Variables feature
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = comment_block_count
+features[variable][] = pathauto_node_blog_pattern
+features[variable][] = pathauto_node_page_pattern
+features[variable][] = pathauto_node_pattern
+features[variable][] = responsive_blog_theme_breadcrumbs
+features[variable][] = social_media_links_appearance
+features[variable][] = social_media_links_icon_style
+features[variable][] = social_media_links_link_attributes
+features[variable][] = social_media_links_platforms

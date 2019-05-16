@@ -1,0 +1,11 @@
+name = Menu feature
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = main-menu
+features[menu_links][] = main-menu_about:node/1
+features[menu_links][] = main-menu_archive:archive
+features[menu_links][] = main-menu_contact:node/2
+features[menu_links][] = main-menu_home:<front>
