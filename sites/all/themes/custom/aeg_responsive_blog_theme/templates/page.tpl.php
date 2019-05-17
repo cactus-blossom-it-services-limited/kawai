@@ -127,7 +127,7 @@
   <?php print render($page['menu_bar']); ?>
 
   <!-- Messages and Help -->
-// Only display error messages if user logged in as admin
+<!-- Only display error messages if user logged in as admin -->
     <?php if($is_admin): ?>
         <?php print $messages; ?>
     <?php endif; ?>
