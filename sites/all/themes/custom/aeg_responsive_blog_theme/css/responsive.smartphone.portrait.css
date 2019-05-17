@@ -1,0 +1,181 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+body {
+  font-size: .9em;
+}
+#header {
+  border-bottom: 0;
+}
+.flexslider .flex-direction-nav a {
+  background-size: 100%;
+  height: 35px;
+  margin-top: -18px;
+  width: 35px;
+}
+#header {
+  border-bottom: 0;
+}
+.region .block {
+  clear: both;
+  display: block;
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+#main-content {
+  margin: 0 0 35px;
+}
+.node-header .node-title,
+#page-title {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.submitted {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.node-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#branding {
+  display: block;
+}
+#primary-menu-bar {
+  background: #36b1bf;
+  box-shadow: inset 0 7px 0 0 rgba(0, 0, 0, 0.2);
+  font-size: 1.3em;
+  margin: 20px 0 0;
+  padding: 15px 0 10px;
+  position: static;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+#primary-menu-bar li a {
+  color: #ffffff;
+  margin-left: 0;
+  padding: 3px 0 3px 35px;
+}
+#primary-menu-bar li a:before {
+  color: #8ecbd2;
+  content: '';
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  padding-right: 4px;
+  text-shadow: none;
+}
+.primary-menu-wrapper {
+  margin: 0 7%;
+}
+.primary-menu {
+  margin-bottom: 10px;
+}
+#columns {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+#logo,
+.site-info {
+  display: block;
+  text-align: center;
+}
+.comment-comments {
+  display: block;
+  float: none;
+}
+.comment-comments a {
+  margin-left: -32px;
+}
+.region-header {
+  margin: 15px 2%;
+}
+.region-help {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.region-footer {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.region-secondary-content {
+
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.node-list-page .node nav ul.links {
+  text-align: center;
+}
+.node-list-page .node nav ul.links li {
+  display: block;
+}
+#content nav ul.links li.comment-comments a {
+  background: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+#menu-bar {
+  padding: 0 2% 20px;
+}
+#breadcrumb {
+  padding: 10px 2%;
+}
+#secondary-menu-bar {
+  padding: 10px 2%;
+}
+.item-list-pager .pager .pager-current,
+.item-list-pager .pager li a {
+  height: 22px;
+  padding: 0 .4em;
+}
+.not-node-page {
+  padding: 0 15px 30px;
+}
+.not-node-page #page-title {
+  padding-left: 0;
+  padding-right: 0;
+}
+.region-tertiary-content {
+  padding: 25px 2% 15px;
+}
+.footer-bottom {
+  padding: 10px 2%;
+}
+.comment-title.title,
+.comment {
+  padding: 15px 15px 0;
+}
+#comments {
+  padding: 0 0 10px;
+}
+#comment-form {
+  padding: 0 15px;
+}
+.flexslider .flex-direction-nav a {
+  background-size: 100%;
+  height: 35px;
+  margin-top: -18px;
+  width: 35px;
+}
+
+#tasks ul.tabs {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.footer-bottom div.block {
+  margin-bottom: 10px;
+  text-align: center;
+}
+#block-social-media-links-social-media-links {
+  float: none;
+}
+.indented {
+  margin-left: 20px;
+}
