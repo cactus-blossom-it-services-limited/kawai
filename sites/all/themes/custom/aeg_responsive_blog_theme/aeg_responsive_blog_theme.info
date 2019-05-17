@@ -1,25 +1,28 @@
-
 ;----------// Theme Information
 
-  name        = AEG responsive blog theme
-  description = A subtheme
-  core        = 7.x
-  base theme  = responsive_blog_theme
+name        = AEG responsive blog theme
+description = A subtheme
+core        = 7.x
+base theme  = responsive_blog_theme
 
+;----------// Stylesheets
+
+; See each stylesheet for extensive documentation and help.
+stylesheets[screen][] = css/styles.css
 
 ;----------// Regions
 
-  regions[header]            = Header
-  regions[leaderboard]       = Leaderboard
-  regions[menu_bar]          = Menu bar
-  regions[help]              = Help
-  regions[secondary_content] = Secondary
-  regions[sidebar_first]     = Sidebar first
-  regions[highlighted]       = Highlighted
-  regions[sidebar_second]    = Sidebar second
-  regions[content]           = Main content
-  regions[tertiary_content]  = Tertiary
-  regions[footer]            = Footer
-  regions[bottom_footer]     = Bottom footer
-  regions[page_top]          = Page top
-  regions[page_bottom]       = Page bottom
+regions[header]            = Header
+regions[leaderboard]       = Leaderboard
+regions[menu_bar]          = Menu bar
+regions[help]              = Help
+regions[secondary_content] = Secondary
+regions[sidebar_first]     = Sidebar first
+regions[highlighted]       = Highlighted
+regions[sidebar_second]    = Sidebar second
+regions[content]           = Main content
+regions[tertiary_content]  = Tertiary
+regions[footer]            = Footer
+regions[bottom_footer]     = Bottom footer
+regions[page_top]          = Page top
+regions[page_bottom]       = Page bottom
